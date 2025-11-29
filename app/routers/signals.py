@@ -20,9 +20,11 @@ router = APIRouter()
 
 @router.get("/signals/")
 def get_signals():
-    return [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]   
+    return [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]
 
 @router.post("/signals/", status_code=status.HTTP_201_CREATED)
 def post_signal(signal: Signal):
     redpanda.publish(signal.toJSON())
     return signal
+
+
