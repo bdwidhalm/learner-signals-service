@@ -21,5 +21,5 @@ def publish(msg):
   future.add_callback(on_success)
   future.add_errback(on_error)
   producer.flush()
-  producer.close()
+#   producer.close()
 
